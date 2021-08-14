@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beast Piano</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@300&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="index.js" defer></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Encode Sans SC', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-image: url('bg.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            background-size: cover;
+        }
+
+        .navsection {
+            width: 100%;
+            height: 100px;
+            background-color: black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            height: 100%;
+        }
+
+        .logo h1 {
+            padding-top: 2.1rem;
+            color: #fff;
+            font-family: 'Encode Sans SC', sans-serif;
+            padding-left: 5rem;
+            font-size: 1.5rem;
+        }
+
+        .menu {
+            height: 100%;
+        }
+
+        .menu ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .menu li {
+            list-style: none;
+        }
+
+        .menu a li {
+            text-decoration: none;
+            color: white;
+            padding: 2.2rem;
+            display: block;
+        }
+
+        .menu ul li:hover {
+            color: rgb(191, 122, 255);
+        }
+
+        .toggle-button {
+            position: absolute;
+            top: 2.75rem;
+            right: 1rem;
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+        }
+
+        .toggle-button .bar {
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+
+        span.bar {
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 870px) {
+            .toggle-button {
+                display: flex;
+            }
+
+            .menu {
+                display: none;
+                width: 100%;
+                height: 400px;
+                top: 110%;
+            }
+
+            .navsection {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .menu ul {
+                height: 215px;
+                padding-top: 2rem;
+                width: 100%;
+                background-color: black;
+                flex-direction: column;
+            }
+
+            .menu ul a li {
+                text-align: center;
+                padding: .5rem 2rem;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+            main{
+                padding-top: 7rem;
+            }
+        }
+        main {
+            color: #fff;
+            height: 85rem;
+        }
+
+        main h2 {
+            font-size: 3vw;
+            padding-left: 45vw;
+            padding-top: 8vw;
+        }
+
+        main h1 {
+            font-size: 4.3vw;
+            padding-left: 30vw;
+            padding-top: 0.5vw;
+        }
+
+        main h3 {
+            padding-left: 39.5vw;
+            padding-top: 1vw;
+            font-size: 2vw;
+            margin-bottom: 2vw;
+        }
+
+        main #vid {
+            text-decoration: none;
+            color: #fff;
+            padding: 0.98vw 3.1vw;
+            border: 0.2vw solid #854fee;
+            margin-left: 39vw;
+            background-color: transparent;
+            font-weight: 800;
+            font-size: 1vw;
+        }
+
+        main #vid:hover {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1vw;
+            padding: 0.98vw 3.1vw;
+            border: 0.2vw solid rgb(114, 121, 221);
+            background-image: linear-gradient(to right, #4458dc 0%, #854fee 100%)
+        }
+
+        main #abu {
+            text-decoration: none;
+            color: #fff;
+            padding: 0.98vw 2.2vw;
+            border: 0.2vw solid #854fee;
+            background-color: transparent;
+            font-weight: 800;
+            font-size: 1vw;
+        }
+
+        main #abu:hover {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1vw;
+            padding: 0.98vw 2.2vw;
+            border: 0.2vw solid rgb(114, 121, 221);
+            background-image: linear-gradient(to right, #4458dc 0%, #854fee 100%)
+        }
+
+        #home {
+            cursor: pointer;
+            color: rgb(114, 121, 221);
+        }
+
+        #home:hover {
+            color: rgb(191, 122, 255);
+        }
+
+        #forum {
+            font-size: larger;
+        }
+
+        #m {
+            background-color: rgba(0, 0, 0, 0.185);
+        }
+
+        #abuus {
+            background-color: rgba(0, 0, 0, 0.185);
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <section class="navsection">
+            <div class="logo">
+                <h1>Beast Piano</h1>
+            </div>
+            <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <div class="menu">
+                <ul>
+                    <a href="indx.html">
+                        <li id="home">Home</li>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCLn0lcrGw2uxEPxUKt304sg">
+                        <li id="yt">Youtube Channel</li>
+                    </a>
+                    <a href="#forum">
+                        <li id="contactmus">Contact Us</li>
+                    </a>
+                    <a href="https://www.instagram.com/beast.piano/">
+                        <li id="ip">Instagram Page</li>
+                    </a>
+                </ul>
+            </div>
+        </section>
+        <main>
+            <div class="text">
+            <h2>HELLO</h2>
+            <h1>THIS IS BEAST PIANO</h1>
+            <h3>MUSICIAN || YOUTUBER</h3>
+        </div>
+            <a href="https://www.youtube.com/channel/UCLn0lcrGw2uxEPxUKt304sg/videos" id="vid">VIDEOS</a>
+            <a href="#aboutme" id="abu">ABOUT US</a>
+        </main>
+    </header>
+    <section class="text-gray-600 body-font">
+        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+            <div
+                class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+                <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Music is the wine that fills
+                    the cup of silence</h1>
+                <p class="mb-8 leading-relaxed">Listen music so that all silence and sadness end in this world</p>
+
+                <div class="flex lg:flex-row md:flex-col">
+
+                </div>
+            </div>
+            <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+                <img class="object-cover object-center rounded" alt="hero" src="piano2.jpg">
+            </div>
+        </div>
+    </section>
+
+    <hr>
+    <section class="text-gray-600 body-font">
+        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center" id="aboutme">
+            <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+                <img class="object-cover object-center rounded" alt="hero" src="p1.jpg">
+            </div>
+            <div
+                class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+                <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Don't hear the Music
+                    <br class="hidden lg:inline-block">Feel the music
+                </h1>
+                <p class="mb-8 leading-relaxed">Hello guys, I am Harshil Sharma. I am a YOUTUBER and MUSICIAN. I am a 12
+                    year old
+                    self
+                    tought YOUTUBER and MUSICIAN. I upload high quality piano videos every week on Youtube and
+                    Instagram. So if you are interested in some sweet and relaxing piano covers you can go through my
+                    channel and Instagram page.</p>
+                <div class="flex justify-center">
+                    <a href="https://www.youtube.com/channel/UCLn0lcrGw2uxEPxUKt304sg"><button
+                            class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">YouTube
+                            Channel</button></a>
+                    <a href="https://www.instagram.com/beast.piano/"><button
+                            class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Instagram
+                            Page</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="text-gray-600 body-font relative">
+        <div class="container px-5 py-24 mx-auto" id="forum">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900" is="cu">Contact Us</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Any suggestions for song covers</p>
+            </div>
+            <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                <div class="flex flex-wrap -m-2">
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="name" class="leading-7 text-sm text-gray-700">Name</label>
+                            <input type="text" id="name" name="name"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-full">
+                        <div class="relative">
+                            <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+                            <textarea id="message" name="message"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                        </div>
+                    </div>
+                    <div class="p-2 w-full">
+                        <a href=""><button
+                                class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                                re>Send</button></a>
+                    </div>
+                    <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
+                        <a class="text-black-500">If you have not entered all the things correctly your message will not
+                            be sent</a>
+                        <span class="inline-flex">
+                            <a class="ml-4 text-gray-500" href="https://www.instagram.com/beast.piano">
+
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
